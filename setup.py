@@ -12,12 +12,12 @@ from setuptools import setup
 
 setup(
     name='hocv',
-    version='0.0.1',
+    version='0.0.2',
     author='JQS',
     author_email='ink_fishing@protonmail.com',
     description='Python科学计算大作业',
     packages=['hocv'],
-    url='https://',
+    url='https://github.com/swpfY/hocv.git',
     install_requires=['opencv-python', 'gradio'],
     entry_points={
         'console_scripts':[

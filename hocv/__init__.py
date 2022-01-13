@@ -8,8 +8,9 @@
 @Introduction   : __init__
 """
 
-import main
+import gradio as gr
+import hocv.img_operate as img
 
 
 def index():
-    main.main()
+    gr.Interface(fn=[img.lblur, img.get_gray, img.pixelated], inputs='image', outputs='image').launch()
