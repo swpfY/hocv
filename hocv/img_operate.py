@@ -10,18 +10,18 @@
 
 import cv2
 import configparser
+import os
 
 config = configparser.ConfigParser()
-config.read("config.ini")
+config.read(os.path.split(os.path.realpath(__file__))[0] + "/config.ini")
 
 
-def lblur(src):
+def blur(src):
     """
     均值模糊
     :param src: 输入图片
     """
-    ksize = int(config['blur']['ksize'])
-    return cv2.blur(src, (ksize, ksize))
+    return cv2.blur(src, (15, 15))
 
 
 def get_gray(src):
@@ -38,14 +38,7 @@ def pixelated(src):
     :param src: 输入图片
     """
     height, width = src.shape[:2]
-    size = int(config['pixel']['size'])
-    w, h = (size, size)
+    w, h = (16, 16)
     temp = cv2.resize(src, (w, h), interpolation=cv2.INTER_LINEAR)
     return cv2.resize(temp, (width, height), interpolation=cv2.INTER_NEAREST)
 
-
-if __name__ == '__main__':
-    input = cv2.imread('./test/input/1.png')
-    output = lblur(input)
-    cv2.imshow('output' ,output)
-    cv2.waitKey(0)

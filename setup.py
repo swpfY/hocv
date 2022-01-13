@@ -12,7 +12,7 @@ from setuptools import setup
 
 setup(
     name='hocv',
-    version='0.0.2',
+    version='0.0.7',
     author='JQS',
     author_email='ink_fishing@protonmail.com',
     description='Python科学计算大作业',
@@ -21,7 +21,7 @@ setup(
     install_requires=['opencv-python', 'gradio'],
     entry_points={
         'console_scripts':[
-            'hocv=hocv:index'
+            'hocv=hocv.main:index'
         ]
     }
 )

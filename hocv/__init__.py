@@ -7,10 +7,3 @@
 @File           : __init__.py.py
 @Introduction   : __init__
 """
-
-import gradio as gr
-import hocv.img_operate as img
-
-
-def index():
-    gr.Interface(fn=[img.lblur, img.get_gray, img.pixelated], inputs='image', outputs='image').launch()
